@@ -2,6 +2,8 @@
  * 
  * v0.1   2011-07-21 - Morgan Aldridge <morgant@makkintosshu.com>
  *                     Initial version.
+ * v0.2   2012-03-19 - Morgan Aldridge
+ *                     Fix for Terminal opening extraneous window.
  *)
 
 -- Sign onto the VPN
@@ -29,8 +31,8 @@ tell application "Mail" to activate
 tell application "System Events"
 	if "Terminal" is not in (name of processes) then
 		tell application "Terminal"
-			activate
 			do script "screen -R"
+			activate
 		end tell
 	end if
 end tell

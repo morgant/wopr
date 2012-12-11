@@ -3,6 +3,8 @@
  * 
  * v0.1   2011-07-19 - Morgan Aldridge <morgant@makkintosshu.com>
  *                     Initial version.
+ * v0.2   2012-03-19 - Morgan Aldridge
+ *                     Updated to also eject my personal drive, if it's mounted.
  *)
 
 -- If certain apps are running, quit them
@@ -19,10 +21,13 @@ tell application "System Events"
 	end if
 end tell
 
--- Eject my Time Machine drive
+-- Eject my Time Machine & personal drives 
 tell application "Finder"
 	if exists the disk "LaCie" then
 		eject "LaCie"
+	end if
+	if exists the disk "kikkutsushita" then
+		eject "kikkutsushita"
 	end if
 end tell
 
